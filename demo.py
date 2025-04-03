@@ -33,14 +33,17 @@ def main():
             print(f"Error: Label file not found at {label_path}")
             return
 
-        # 3. Check test image
-        demo_image = Path("demo_images/eco_action.jpg")
+        # 3. Check test image - UPDATED TO MATCH YOUR FILENAME
+        demo_image = Path("demo_images/cherry_blossom.jpeg")
         if not demo_image.exists():
             print(f"Error: Test image not found at {demo_image}")
-            print("Please add an image to demo_images/ folder")
+            print("Available images in demo_images/:")
+            for img in Path("demo_images").iterdir():
+                print(f"- {img.name}")
             return
 
         print("✓ All required files found")
+        print(f"Using image: {demo_image}")
         
         # 4. Initialize verifier
         print("\nInitializing verifier...")
